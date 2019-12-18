@@ -3,3 +3,5 @@
 *.dev
 *.layout
 *.win
+*.html
+files/

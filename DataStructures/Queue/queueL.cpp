@@ -69,7 +69,7 @@ template <class Type> void QueueL<Type>::printQ(){
 	
 	NodePointer tmp = front;
 	while(tmp != NULL){
-		cout << tmp->data << ", ";
+		cout <<" "<< tmp->data << ", ";
 		tmp = tmp->next;
 	}
 	cout << endl;
@@ -77,7 +77,6 @@ template <class Type> void QueueL<Type>::printQ(){
 
 // Destructor
 template <class Type> QueueL<Type>::~QueueL(){
-	front=NULL; rear=NULL;
+	delete front; delete rear;
 };
-
 

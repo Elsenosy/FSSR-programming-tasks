@@ -22,7 +22,6 @@ template <class Type> class QueueT{
 		void qFront(Type &);
 		int qLength();
 		
-		
 		void printQ();
 	
 	private:

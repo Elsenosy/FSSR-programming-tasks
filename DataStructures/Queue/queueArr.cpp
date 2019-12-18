@@ -8,6 +8,7 @@
 #include "queueArr.h"
 #include <iostream>
 using namespace std;
+
 // Constructor function 
 template <class Type> QueueT<Type>::QueueT(int size){
 	front=0; rear=-1; maxSize = size; count=0;
@@ -16,17 +17,12 @@ template <class Type> QueueT<Type>::QueueT(int size){
 
 //Check Queue is empty 
 template <class Type> QueueT<Type>::~QueueT(){
-	delete queue;
+	delete[] queue;
 };
 
 // Checkk queue is full 
 template <class Type> bool QueueT<Type>::qIsEmpty(){
 	return count == 0 ? true : false;
-};
-
-// Check queue is full
-template <class Type> bool QueueT<Type>::qIsFull(){
-	return count == maxSize ? true : false;
 };
 
 // Enqueue function: add an item to the rear of the queue
@@ -58,7 +54,12 @@ template <class Type> void QueueT<Type>::qFront(Type &item){
 		return;
 	}
 	item = queue[front];
-}
+};
+
+// qIsFull: to check wheather the Queue is full or not
+template <class Type> bool QueueT<Type>::qIsFull(){
+	return front == 0 && rear == maxSize-1 ? true : false;
+};
 
 // qLength: return queue actual length
 template <class Type> int QueueT<Type>::qLength(){
@@ -73,7 +74,7 @@ template <class Type> void QueueT<Type>::printQ(){
 	}
 	
 	for(int i=front; i <=rear; i++){
-		cout << queue[i] << ", ";
+		cout << " "<<queue[i] << ", ";
 	}
 	cout << endl;
 };
